@@ -24,7 +24,7 @@
     "**/.pytest_cache": true
   },
   "sqlfluff.dialect": "duckdb",
-  "sqlfluff.executablePath": "${workspaceFolder}/../dbt_env/bin/sqlfluff",
+  "sqlfluff.executablePath": "/Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_env/bin/sqlfluff",
   "sqlfluff.config": "${workspaceFolder}/.sqlfluff",
   "sqlfluff.ignoreLocal": false,
   "sqlfluff.autofix": true,
