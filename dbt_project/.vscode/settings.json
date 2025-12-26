@@ -1,5 +1,5 @@
 {
-  "python.defaultInterpreterPath": "${workspaceFolder}/../dbt_env/bin/python",
+  "python.defaultInterpreterPath": "/Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_env/bin/python",
   "python.formatting.provider": "black",
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
