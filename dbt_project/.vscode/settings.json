@@ -27,7 +27,7 @@
   "sqlfluff.executablePath": "/Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_env/bin/sqlfluff",
   "sqlfluff.python": "/Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_env/bin/python",
   "sqlfluff.workingDirectory": "${workspaceFolder}",
-  "sqlfluff.config": "${workspaceFolder}/.sqlfluff",
+  "sqlfluff.config": "${workspaceFolder}/setup.cfg",
   "sqlfluff.ignoreLocal": false,
   "sqlfluff.autofix": true,
   "sqlfluff.env": {
