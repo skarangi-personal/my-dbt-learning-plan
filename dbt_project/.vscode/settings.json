@@ -1,0 +1,39 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/../dbt_env/bin/python",
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnSave": true
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "dorzey.vscode-sqlfluff",
+    "editor.formatOnSave": true
+  },
+  "[jinja]": {
+    "editor.defaultFormatter": "wholroyd.jinja"
+  },
+  "search.exclude": {
+    "**/target": true,
+    "**/dbt_packages": true,
+    "**/logs": true
+  },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true
+  },
+  "sqlfluff.dialect": "duckdb",
+  "sqlfluff.rules": {
+    "tab_space_size": 4,
+    "max_line_length": 88
+  },
+  "dbt.pathMatcher": "'^(.*/)?models/(.*/)?(.+\\.sql)$': ['**/compiled/**/$3'], '^(.*/)?compiled/(.*/)?(.+\\.sql)$': ['**/models/**/$3']",
+  "dbt.queryTimeout": 60,
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
