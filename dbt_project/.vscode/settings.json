@@ -26,9 +26,13 @@
   "sqlfluff.dialect": "duckdb",
   "sqlfluff.executablePath": "/Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_env/bin/sqlfluff",
   "sqlfluff.python": "/Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_env/bin/python",
+  "sqlfluff.workingDirectory": "${workspaceFolder}",
   "sqlfluff.config": "${workspaceFolder}/.sqlfluff",
   "sqlfluff.ignoreLocal": false,
   "sqlfluff.autofix": true,
+  "sqlfluff.env": {
+    "PATH": "/Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_env/bin:${env:PATH}"
+  },
   "sqlfluff.rules": {
     "tab_space_size": 4,
     "max_line_length": 80
