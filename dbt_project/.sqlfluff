@@ -1,136 +1,23 @@
 # SQLFluff Configuration for dbt
-# Based on dbt's SQL styling best practices:
-# https://docs.getdbt.com/best-practices/how-we-style/2-how-we-style-our-sql
+# Based on dbt's SQL styling best practices
 
 [core]
-# Use DuckDB dialect
 dialect = duckdb
 max_line_length = 80
+
+[sqlfluff:indentation]
 indent_unit = space
 indent_size = 4
-# Show violations during linting
-exclude_rules = None
 
 [sqlfluff:rules]
-# Line length
-max_line_length = 80
-
-# Indentation and spacing
-indent_size = 4
-indent_unit = space
-
-# Comma rules - trailing commas preferred
-comma_style = trailing
+# Trailing commas
 trailing_comma = forbid
 
-# Case rules - everything lowercase (keywords, functions, field names)
+# Case rules
 capitalisation_policy = lower
 extended_capitalisation_policy = lower
-# Apply to all elements
-select_clause_trailing_comma = forbid
 
-# Quoted identifiers
-quoted_identifiers_policy = all
-
-# Specific rule configurations for dbt style
-
-# L001: Indentation
-[sqlfluff:rules:L001]
-indent_size = 4
-
-# L003: Line length
-[sqlfluff:rules:L003]
-max_line_length = 80
-
-# L009: Tab spacing
-[sqlfluff:rules:L009]
-indent_size = 4
-
-# L010: Keywords should be uppercase (we want lowercase for dbt)
-[sqlfluff:rules:L010]
-capitalisation_policy = lower
-
-# L011: Identifiers should be lowercase (we want lowercase for dbt)
-[sqlfluff:rules:L011]
-capitalisation_policy = lower
-
-# L012: Function names should be lowercase
-[sqlfluff:rules:L012]
-capitalisation_policy = lower
-
-# L014: Unquoted identifiers should be lowercase
-[sqlfluff:rules:L014]
-capitalisation_policy = lower
-
-# L030: Function name should be lowercase
-[sqlfluff:rules:L030]
-capitalisation_policy = lower
-
-# L039: Unnecessary whitespace between function name and parenthesis
-[sqlfluff:rules:L039]
-allow_space_before_parenthesis = false
-
-# L040: Trailing newline
-[sqlfluff:rules:L040]
-trailing_newline = forbid
-
-# L042: Unused select alias
-[sqlfluff:rules:L042]
-# Forbid unused aliases
-forbid_unused_aliases = true
-
-# L045: Null comparison style
-[sqlfluff:rules:L045]
-# Use IS NULL instead of = NULL
-null_style = consistent
-
-# L051: Join condition style - prefer explicit AS
-[sqlfluff:rules:L051]
-# Require explicit AS keyword for joins
-require_alias = explicit
-
-# L054: Inconsistent column reference style
-[sqlfluff:rules:L054]
-# For joins, always use table prefix
-single_table_references = explicit
-
-# L056: Comments should not use hyphens for visual separators
-[sqlfluff:rules:L056]
-# Disallow -- ---- style comments
-require_comment_end_period = false
-
-# L057: Casting - use CAST() not ::
-[sqlfluff:rules:L057]
-# Prefer CAST(x AS type) over x::type
-cast_style = consistent
-
-# L059: Closing parenthesis placement
-[sqlfluff:rules:L059]
-select_clause_trailing_comma = forbid
-
-# L061: Union vs Union All
-[sqlfluff:rules:L061]
-# Prefer UNION ALL
-prefer_union_all = true
-
-# L062: Whitespace after comma
-[sqlfluff:rules:L062]
-allow_space_after_comma = true
-
-# L063: Operators - prefer != over <>
-[sqlfluff:rules:L063]
-operator_new_lines = after
-
-# L064: NULL comparison style
-[sqlfluff:rules:L064]
-null_comparison_style = consistent
-
-# Template loop tolerance - for Jinja
+# Jinja support
 [sqlfluff:templater:jinja]
 apply_dbt_builtins = true
 load_macros_from_path = macros
-
-# Jinja rules
-[sqlfluff:rules:jinja]
-# Allow Jinja comments
-ignore_templated_spans = true
