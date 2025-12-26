@@ -24,9 +24,13 @@
     "**/.pytest_cache": true
   },
   "sqlfluff.dialect": "duckdb",
+  "sqlfluff.executablePath": "${workspaceFolder}/../dbt_env/bin/sqlfluff",
+  "sqlfluff.config": "${workspaceFolder}/.sqlfluff",
+  "sqlfluff.ignoreLocal": false,
+  "sqlfluff.autofix": true,
   "sqlfluff.rules": {
     "tab_space_size": 4,
-    "max_line_length": 88
+    "max_line_length": 80
   },
   "dbt.pathMatcher": "'^(.*/)?models/(.*/)?(.+\\.sql)$': ['**/compiled/**/$3'], '^(.*/)?compiled/(.*/)?(.+\\.sql)$': ['**/models/**/$3']",
   "dbt.queryTimeout": 60,
