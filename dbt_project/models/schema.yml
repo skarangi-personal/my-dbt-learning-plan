@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: yellow_taxi_raw
+    description: Raw yellow taxi trip data
+    columns:
+      - name: tpep_pickup_datetime
+        description: Pickup datetime
+        tests:
+          - not_null
+
+      - name: payment_type
+        description: Payment type code
+        tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1, 2, 3, 4, 5, 6]
+      - name: fare_amount
+        description: Fare amount in USD
+        tests:
+          - not_null
+          - amount_positive
+
+      - name: total_amount
+        description: Total amount in USD
+        tests:
+          - not_null
+          - amount_positive
