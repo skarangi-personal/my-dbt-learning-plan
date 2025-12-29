@@ -1,8 +1,12 @@
 {{ config(materialized='table') }}
 
--- Raw yellow taxi trip data loaded from external source
--- Uses source() function to reference taxi_data.yellow_taxi_parquet
--- Source view is created by on-run-start hook
+{%- set parquet_path -%}
+    /Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_project/data/raw/yellow_taxi/yellow_tripdata_*.parquet
+{%- endset -%}
+
+-- Raw yellow taxi trip data loaded from parquet files
+-- Source: {{ source('taxi_data', 'yellow_taxi_parquet') }}
+-- This model loads data from the external source defined in schema.yml
 
 SELECT *
-FROM {{ source('taxi_data', 'yellow_taxi_parquet') }}
+FROM read_parquet('{{ parquet_path.strip() }}')
