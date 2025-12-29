@@ -6,49 +6,59 @@ seeds:
     columns:
       - name: country_code
         description: ISO 3166-1 alpha-2 country code (e.g., US)
+        data_type: varchar
         data_tests:
           - not_null
 
       - name: zipcode
         description: United States postal ZIP code
+        data_type: varchar
         data_tests:
           - not_null
           - unique
 
       - name: place
         description: City or place name
+        data_type: varchar
         data_tests:
           - not_null
 
       - name: state
         description: Full state name (e.g., Alaska)
+        data_type: varchar
         data_tests:
           - not_null
 
       - name: state_code
         description: Two-letter state abbreviation (e.g., AK)
+        data_type: varchar
         data_tests:
           - not_null
 
       - name: province
         description: Province or region name within state
-        data_tests: []
+        data_type: varchar
 
       - name: province_code
         description: Numeric code for province/region
+        data_type: varchar
 
       - name: community
         description: Community or township name
+        data_type: varchar
 
       - name: community_code
         description: Code for community/township
+        data_type: varchar
 
       - name: latitude
         description: Geographic latitude coordinate
+        data_type: double
         data_tests:
           - not_null
 
       - name: longitude
         description: Geographic longitude coordinate
+        data_type: double
         data_tests:
           - not_null
