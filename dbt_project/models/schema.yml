@@ -8,6 +8,9 @@ models:
         description: Pickup datetime in America/New_York timezone
         tests:
           - not_null
+          - columns_equal:
+              arguments:
+                column2: tpep_dropoff_datetime
 
       - name: tpep_dropoff_datetime
         description: Dropoff datetime in America/New_York timezone
