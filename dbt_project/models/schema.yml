@@ -1,5 +1,29 @@
 version: 2
 
+sources:
+  - name: taxi_data
+    description: New York City yellow taxi trip data from TLC
+    database: memory
+    schema: main
+    tables:
+      - name: yellow_taxi_parquet
+        description: Yellow taxi trip records loaded from parquet files
+        columns:
+          - name: tpep_pickup_datetime
+            description: Pickup datetime in America/New_York timezone
+
+          - name: tpep_dropoff_datetime
+            description: Dropoff datetime in America/New_York timezone
+
+          - name: payment_type
+            description: Payment method code (0=Unknown, 1=Credit, 2=Cash, 3=No Charge, 4=Dispute, 5=Unknown, 6=Voided Trip)
+
+          - name: fare_amount
+            description: Base fare amount in USD
+
+          - name: total_amount
+            description: Total trip amount in USD (includes fare, tolls, tips, surcharges)
+
 models:
   - name: yellow_taxi_raw
     description: Raw yellow taxi trip data
