@@ -5,7 +5,12 @@ models:
     description: Raw yellow taxi trip data
     columns:
       - name: tpep_pickup_datetime
-        description: Pickup datetime
+        description: Pickup datetime in America/New_York timezone
+        tests:
+          - not_null
+
+      - name: tpep_dropoff_datetime
+        description: Dropoff datetime in America/New_York timezone
         tests:
           - not_null
 
@@ -26,3 +31,12 @@ models:
         tests:
           - not_null
           - amount_positive
+
+# NOTE: columns_equal test example usage
+# To validate two columns are equal, use:
+#   - name: calculated_total
+#     tests:
+#       - columns_equal:
+#           arguments:
+#             column2: stored_total
+# This validates that calculated_total = stored_total
