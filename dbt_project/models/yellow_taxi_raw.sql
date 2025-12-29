@@ -1,8 +1,12 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
--- Raw yellow taxi trip data
--- This view exposes the staging model as the raw data layer
--- Used by downstream transformations
+{%- set parquet_path -%}
+    /Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_project/data/raw/yellow_taxi/yellow_tripdata_*.parquet
+{%- endset -%}
+
+-- Raw yellow taxi trip data loaded from parquet files
+-- Source: {{ source('taxi_data', 'yellow_taxi_parquet') }}
+-- This model loads data from the external source defined in schema.yml
 
 SELECT *
-FROM {{ ref('stg_yellow_taxi_parquet') }}
+FROM read_parquet('{{ parquet_path.strip() }}')

@@ -3,11 +3,12 @@ version: 2
 sources:
   - name: taxi_data
     description: New York City yellow taxi trip data from TLC
-    database: memory
-    schema: main
+    # Using read_parquet as external table source
     tables:
       - name: yellow_taxi_parquet
         description: Yellow taxi trip records loaded from parquet files
+        meta:
+          external_location: /Users/skarangi/projects/trainings/my-dbt-learning-plan/dbt_project/data/raw/yellow_taxi/yellow_tripdata_*.parquet
         columns:
           - name: tpep_pickup_datetime
             description: Pickup datetime in America/New_York timezone
@@ -25,24 +26,6 @@ sources:
             description: Total trip amount in USD (includes fare, tolls, tips, surcharges)
 
 models:
-  - name: stg_yellow_taxi_parquet
-    description: Staging layer - loads raw yellow taxi data from parquet files
-    columns:
-      - name: tpep_pickup_datetime
-        description: Pickup datetime in America/New_York timezone
-
-      - name: tpep_dropoff_datetime
-        description: Dropoff datetime in America/New_York timezone
-
-      - name: payment_type
-        description: Payment method code (0=Unknown, 1=Credit, 2=Cash, 3=No Charge, 4=Dispute, 5=Unknown, 6=Voided Trip)
-
-      - name: fare_amount
-        description: Base fare amount in USD
-
-      - name: total_amount
-        description: Total trip amount in USD (includes fare, tolls, tips, surcharges)
-
   - name: yellow_taxi_raw
     description: Raw yellow taxi trip data view
     columns:
