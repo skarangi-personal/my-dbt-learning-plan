@@ -2,13 +2,16 @@
 # DBT Environment Activation Script
 # Usage: source activate.sh
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJECT_ROOT="/Users/skarangi/projects/trainings/my-dbt-learning-plan"
 
 echo "🚀 Activating DBT environment..."
-source "$SCRIPT_DIR/dbt_env/bin/activate"
-cd "$SCRIPT_DIR/dbt_project"
+source "$PROJECT_ROOT/dbt_env/bin/activate"
+
+# Change to dbt_project directory - this affects the current shell when sourced
+cd "$PROJECT_ROOT/dbt_project" || exit 1
 
 echo "✅ Environment activated!"
+echo "📍 Location: $(pwd)"
 echo ""
 echo "Available commands:"
 echo "  dbt debug                              - Test database connection"
